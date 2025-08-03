@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/index.js",
   mode: "development",
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://yadav-angad.github.io/mfe-host/',
     path: path.resolve(__dirname, "build"),
     filename: "main.js",
   },

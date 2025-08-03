@@ -1,7 +1,7 @@
 {
-  "name": "mfe-country-container",
+  "name": "mfe-host-controller",
   "version": "1.0.0",
-  "description": "MFE Country Container micro-frontend application",
+  "description": "MFE Host Controller micro-frontend application",
   "homepage": "http://yadav-angad.github.io/mfe-host",
   "main": "index.js",
   "scripts": {
