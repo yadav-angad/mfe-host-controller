@@ -2,7 +2,7 @@
   "name": "mfe-host-controller",
   "version": "1.0.0",
   "description": "MFE Host Controller micro-frontend application",
-  "homepage": "http://yadav-angad.github.io/mfe-host",
+  "homepage": "http://yadav-angad.github.io/mfe-host-controller/",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
