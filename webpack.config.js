@@ -9,7 +9,6 @@ module.exports = {
   entry: "./src/index.js",
   mode: "development",
   output: {
-    publicPath: '/mfe-host-controller/',
     path: path.resolve(__dirname, "build"),
     filename: "main.js",
   },
