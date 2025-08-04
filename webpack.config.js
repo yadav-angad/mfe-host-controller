@@ -43,8 +43,9 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        MfeIndia: "MfeIndia@https://yadav-angad.github.io/mfe-india/remoteEntry.js",
-        MfeUsa: "MfeUsa@https://yadav-angad.github.io/mfe-usa/remoteEntry.js",
+        MfeIndia: "MfeIndia@http://localhost:3001/remoteEntry.js",
+        MfeUsa: "MfeUsa@http://localhost:3002/remoteEntry.js",
+        MfeCounter: "MfeCounter@http://localhost:3004/remoteEntry.js",
       },
       exposes: {
         './context/CommonContext': "./src/context/CommonContext.js", // Expose the CommonContext

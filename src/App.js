@@ -1,26 +1,17 @@
 import React from "react";
-import { Button, Card } from "@mui/material";
-import { useSelector, useDispatch } from 'react-redux';
-import { store } from './store/store';
+import { Grid } from "@mui/material";
+import { useDispatch } from 'react-redux';
 import Header from "./Header";
 const MFEIndia = React.lazy(() => import("MfeIndia/MfeIndia"));
 const MFEUSA = React.lazy(() => import("MfeUsa/MfeUsa"));
+const MFECounter = React.lazy(() => import("MfeCounter/MfeCounter"));
 
 export default function () {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = React.useState(false);
-  const setUserDetails = () => {
-    dispatch({ type: 'SET_USER', payload: { name: 'Angad Yadav 11' } });
-  };
-
   React.useEffect(() => {
-    const countries = [
-      'India', 'United States', 'Canada', 'Australia', 'Germany',
-      'France', 'Brazil', 'Japan', 'China', 'Russian Federation'
-    ];
+    const countries = ['India', 'United States'];
 
     const fetchCountryData = async (country) => {
-      setIsLoading(true);
       const response = await fetch('https://countriesnow.space/api/v0.1/countries/population', {
         method: 'POST',
         headers: {
@@ -45,15 +36,14 @@ export default function () {
                 dispatch({ type: 'SET_COUNTRY_DATA', payload: res });
               }
             } catch (error) {
-              // Handle error if needed
+              console.error(`Error fetching data for ${country}:`, error);
             }
           })
         ).then(() => {
           console.log('All countries data fetched successfully');
-          setIsLoading(false);
         });
       } catch (error) {
-        // Handle error if needed
+        console.error('Error fetching countries data:', error);
       }
     };
 
@@ -62,21 +52,12 @@ export default function () {
 
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
-      <Card>
+      <Grid container spacing={2} sx={{ height: 'calc(100vh - 140px)' }}>
         <Header />
-      </Card>
-      <Card sx={{
-        width: '100%',
-        height: 'calc(100vh - 120px)',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: '20px',
-      }}>
+        <MFECounter />
         <MFEIndia />
         <MFEUSA />
-        {/* <Button onClick={() => setUserDetails()}>Set {store.getState()?.user?.name}</Button> */}
-      </Card >
+      </Grid>
     </React.Suspense>
   );
 }
